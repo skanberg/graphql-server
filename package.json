@@ -4,5 +4,13 @@
   "main": "index.js",
   "repository": "https://github.com/skanberg/graphql-server.git",
   "author": "Fredrik Skanberg <skanberg@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^0.9.1",
+    "graphql-tools": "^0.10.0",
+    "micro": "^7.0.6"
+  },
+  "scripts": {
+    "start": "micro -p 4000"
+  }
 }
