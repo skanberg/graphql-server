@@ -10,7 +10,8 @@
     "express": "^4.15.3",
     "express-graphql": "^0.6.6",
     "graphql": "^0.10.1",
-    "graphql-tools": "^1.0.0"
+    "graphql-tools": "^1.0.0",
+    "node-cache": "^4.1.1"
   },
   "scripts": {
     "start": "node index.js"
