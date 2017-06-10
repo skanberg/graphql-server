@@ -1,19 +1,22 @@
-const { json } = require('micro')
-const { graphql, buildSchema } = require('graphql');
+const express = require("express");
+const graphqlHTTP = require("express-graphql");
+const schema = require("./schema");
+const cors = require("cors");
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+const server = express();
 
-const root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
+server.use(cors());
 
-module.exports = async (req, res) => {
-  const { query } = await json(req);
-  return await graphql(schema, query, root);
-};
+server.use(
+  "/graphql",
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  }),
+);
+
+server.get("/", (req, res) => {
+  res.redirect("/graphql");
+});
+
+server.listen(4000);
